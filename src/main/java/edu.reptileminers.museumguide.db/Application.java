@@ -1,4 +1,4 @@
-package edu.reptileminers.museumguide.db.data;
+package edu.reptileminers.museumguide.db;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
