@@ -1,4 +1,4 @@
-package edu.reptileminers.museumguide.db.data;
+package edu.reptileminers.museumguide.db;
 
 import javax.persistence.*;
 import java.util.List;
