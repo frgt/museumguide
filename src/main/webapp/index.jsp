@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="images/icon.png">
 
-    <title>Recipes Generator</title>
+    <title>Museum Guide</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -21,7 +21,7 @@
     <![endif]-->
 
     <!-- Custom styles -->
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/main_page_styles.css" rel="stylesheet">
     <link href="./css/buttons.css" rel="stylesheet">
 </head>
 
@@ -44,8 +44,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li><a href="#">Search</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="article_page.jsp">Search</a></li>
+                <li><a href="#1">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -56,22 +56,79 @@
 </nav>
 
 <div id="content_div" class="contentdiv">
-</div>
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Carousel -->
+<div id="searchCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="item bg bg1">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1 class="cover-heading">Search by exhibit title</h1>
 
-<!-- Latest compiled and minified JavaScript -->
-<script
-        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <input type="text" class="form-control" placeholder="Writhe the exhibit title..."
+                                       data-toggle="tooltip" data-placement="top"
+                                       title="Write the exhibit title.">
+                            </span>
+                        </div>
+                        <button class="btn-search btn-item-info" type="search_button">Start search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item bg bg2">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1 class="cover-heading">Search by QR code</h1>
+                        <button class="btn-search btn-item-info" type="search_button">Start search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#searchCarousel" role="button"
+       data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"
+                                aria-hidden="true"></span> <span class="sr-only">Previous</span>
+    </a> <a class="right carousel-control" href="#searchCarousel" role="button"
+            data-slide="next"> <span
+        class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+</a>
+</div>
+</div>
+
+
 <script type="text/javascript">
-    $(document).ready(function () {
-        $.get("./search_page.jsp", function (data) {
-            $("#content_div").append(data);
+    /**
+     * Pauses the carousel on focus.
+     */
+    $(function () {
+        $('#searchCarousel.slide').carousel({
+            interval: 5000,
+            pause: "hover"
+        });
+
+        $('input').focus(function () {
+            $("#searchCarousel").carousel('pause');
+        }).blur(function () {
+            $("#searchCarousel").carousel('cycle');
         });
     });
 </script>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 </body>
 </html>

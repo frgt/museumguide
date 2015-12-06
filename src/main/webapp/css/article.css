@@ -1,0 +1,32 @@
+
+/* CUSTOMIZE THE ARTICLE
+-------------------------------------------------- */
+
+.article {
+    background: rgba(255,255,255,0.5);
+}
+
+.article-inner {
+}
+
+.article {
+    margin-bottom: 0px;
+}
+
+.article.title {
+    background: none;
+    color: #737373;
+    text-shadow: gray;
+    font-size: xx-large;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.article.text {
+    background: none;
+    color: #737373;
+    text-shadow: none;
+    font-size: medium;
+    border-radius: 4px;
+    margin-top: 5px;
+}
