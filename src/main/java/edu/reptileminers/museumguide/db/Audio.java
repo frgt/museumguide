@@ -8,8 +8,8 @@ import java.util.List;
 public class Audio {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String audio;
 
@@ -17,11 +17,11 @@ public class Audio {
     @Nullable
     private List<Article> articles;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

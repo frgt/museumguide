@@ -87,7 +87,6 @@
     //Summernote editor snippet - js
     $.getScript('//cdnjs.cloudflare.com/ajax/libs/summernote/0.7.0/summernote.min.js',function(){
         $('#summernote').summernote();
-        $('#summernote').hidePopup();
     });
 </script>
 </body>

@@ -1,5 +1,6 @@
 package edu.reptileminers.museumguide.db;
 
+import javax.annotation.Nullable;
 import javax.persistence.*;
 import java.util.List;
 
@@ -7,8 +8,8 @@ import java.util.List;
 public class Article {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String title;
 
@@ -20,6 +21,7 @@ public class Article {
             @JoinColumn(name = "article_id", referencedColumnName = "id"),
             inverseJoinColumns =
             @JoinColumn(name = "audio_id", referencedColumnName = "id"))
+    @Nullable
     private List<Audio> playlist;
 
     @ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
@@ -28,7 +30,16 @@ public class Article {
             @JoinColumn(name = "article_id", referencedColumnName = "id"),
             inverseJoinColumns =
             @JoinColumn(name = "picture_id", referencedColumnName = "id"))
+    @Nullable
     private List<Picture> gallery;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;

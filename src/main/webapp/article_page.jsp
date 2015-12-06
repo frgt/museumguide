@@ -107,6 +107,17 @@ Sokolov succeeded in juxtaposing the limitless material work with a cosmos of fe
         </audio>
     </div>
 
+    <!-- comment starts -->
+    <script src="https://apis.google.com/js/plusone.js"></script>
+    <div id="comments"></div>
+    <script>
+        gapi.comments.render('comments', {
+            href: window.location,
+            width: '960',
+            first_party_property: 'BLOGGER',
+            view_type: 'FILTERED_POSTMOD'
+        });
+    </script>
     <!-- Required Javascript files -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>

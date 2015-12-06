@@ -74,10 +74,10 @@
                             <span class="input-group-btn">
                                 <input type="text" class="form-control" placeholder="Writhe the exhibit title..."
                                        data-toggle="tooltip" data-placement="top"
-                                       title="Write the exhibit title.">
+                                       title="Write the exhibit title." id="search_text">
                             </span>
                         </div>
-                        <button class="btn-search btn-item-info" type="search_button">Start search</button>
+                        <button class="btn-search btn-item-info" type="search_button" id="search_button">Start search</button>
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                 <div class="container">
                     <div class="carousel-caption">
                         <h1 class="cover-heading">Search by QR code</h1>
-                        <button class="btn-search btn-item-info" type="search_button">Start search</button>
+                        <button class="btn-search btn-item-info" type="search_button" id="qrcode_button">Start search</button>
                     </div>
                 </div>
             </div>
@@ -104,6 +104,12 @@
 </div>
 </div>
 
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
     /**
@@ -121,14 +127,21 @@
             $("#searchCarousel").carousel('cycle');
         });
     });
+
+    /**
+     * Search by article title.
+     */
+    $('#search_button').click(function () {
+        var requestUrl = "articles/search/findByTitle?title=" + $('#search_text').val();
+        console.log(requestUrl);
+        $.ajax({
+            url: requestUrl
+        }).then(function(data) {
+            console.log(data);
+        });
+    });
 </script>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 </body>
 </html>
