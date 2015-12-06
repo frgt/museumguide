@@ -138,6 +138,12 @@
             url: requestUrl
         }).then(function(data) {
             console.log(data);
+            var articles = JSON.parse(data);
+            /**
+             * FIXME Only first article is used.
+             */
+
+            window.open("./article_page.jsp",'_self');
         });
     });
 </script>
