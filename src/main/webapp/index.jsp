@@ -70,12 +70,13 @@
                     <div class="carousel-caption">
                         <h1 class="cover-heading">Search by exhibit title</h1>
 
-                        <form name="article_search" action="article_page" method="post">
+                        <form name="article_search" action="article_page" method="get">
                         <div class="input-group">
                             <span class="input-group-btn">
                                 <input type="text" class="form-control" placeholder="Write the exhibit title..."
                                        data-toggle="tooltip" data-placement="top"
-                                       title="Write the exhibit title." id="search_text">
+                                       title="Write the exhibit title."
+                                       name="title" id="search_text">
                             </span>
                         </div>
                             <input class="btn-search btn-item-info" type="submit" value="Start search" />
