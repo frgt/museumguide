@@ -132,7 +132,7 @@
      * Search by article title.
      */
     $('#search_button').click(function () {
-        var requestUrl = "articles/search/findByTitle?title=" + $('#search_text').val();
+        /**var requestUrl = "articles/search/findByTitle?title=" + $('#search_text').val();
         console.log(requestUrl);
         $.ajax({
             url: requestUrl
@@ -141,10 +141,11 @@
             var articles = JSON.parse(data);
             /**
              * FIXME Only first article is used.
-             */
 
             window.open("./article_page.jsp",'_self');
-        });
+        });*/
+        var articleTitle = $('#search_text').val();
+        window.open("./article_pg_mvc.htm?title=" + articleTitle,'_self');
     });
 </script>
 

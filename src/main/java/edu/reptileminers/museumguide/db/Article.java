@@ -53,23 +53,36 @@ public class Article {
         return text;
     }
 
-    public void setLogo(String text) {
+    public void setText(String text) {
         this.text = text;
     }
 
+    @Nullable
     public List<Audio> getPlaylist() {
         return playlist;
     }
 
-    public void setPlaylist(List<Audio> playlist) {
+    public void setPlaylist(@Nullable List<Audio> playlist) {
         this.playlist = playlist;
     }
 
+    @Nullable
     public List<Picture> getGallery() {
         return gallery;
     }
 
-    public void setGallery(List<Picture> gallery) {
+    public void setGallery(@Nullable List<Picture> gallery) {
         this.gallery = gallery;
+    }
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", text='" + text + '\'' +
+                ", playlist=" + playlist +
+                ", gallery=" + gallery +
+                '}';
     }
 }
