@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -16,8 +17,8 @@ public class ArticleController {
     @Autowired
     private ArticleRepository repository;
 
-    @RequestMapping(value = "/article_page", params = "title")
-    public String handleRequest(@RequestParam(value="title", required=true) String title, Model model) {
+    @RequestMapping(value = "/article_page")
+    public String handleRequest(@RequestParam(value="title", required=false, defaultValue="About") String title, Model model) {
         System.out.println("ArticleController.handleRequest");
         System.out.println("title::" + title);
         List<Article> articles = repository.findByTitle(title);
@@ -25,7 +26,7 @@ public class ArticleController {
         for(Article article: articles) {
             model.addAttribute("article", article);
         }
-
-        return "article";
+        return "article_page";
+//        return "article_page";
     }
 }
