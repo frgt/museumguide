@@ -70,14 +70,16 @@
                     <div class="carousel-caption">
                         <h1 class="cover-heading">Search by exhibit title</h1>
 
+                        <form name="article_search" action="article_page" method="post">
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <input type="text" class="form-control" placeholder="Writhe the exhibit title..."
+                                <input type="text" class="form-control" placeholder="Write the exhibit title..."
                                        data-toggle="tooltip" data-placement="top"
                                        title="Write the exhibit title." id="search_text">
                             </span>
                         </div>
-                        <button class="btn-search btn-item-info" type="search_button" id="search_button">Start search</button>
+                            <input class="btn-search btn-item-info" type="submit" value="Start search" />
+                        </form>
                     </div>
                 </div>
             </div>
@@ -128,25 +130,25 @@
         });
     });
 
-    /**
-     * Search by article title.
-     */
-    $('#search_button').click(function () {
-        /**var requestUrl = "articles/search/findByTitle?title=" + $('#search_text').val();
-        console.log(requestUrl);
-        $.ajax({
-            url: requestUrl
-        }).then(function(data) {
-            console.log(data);
-            var articles = JSON.parse(data);
-            /**
-             * FIXME Only first article is used.
-
-            window.open("./article_page.jsp",'_self');
-        });*/
-        var articleTitle = $('#search_text').val();
-        window.open("./article_pg_mvc.htm?title=" + articleTitle,'_self');
-    });
+//    /**
+//     * Search by article title.
+//     */
+//    $('#search_button').click(function () {
+//        /**var requestUrl = "articles/search/findByTitle?title=" + $('#search_text').val();
+//        console.log(requestUrl);
+//        $.ajax({
+//            url: requestUrl
+//        }).then(function(data) {
+//            console.log(data);
+//            var articles = JSON.parse(data);
+//            /**
+//             * FIXME Only first article is used.
+//
+//            window.open("./article_page.jsp",'_self');
+//        });*/
+//        var articleTitle = $('#search_text').val();
+//        window.open("./article_pg_mvc.htm?title=" + articleTitle,'_self');
+//    });
 </script>
 
 

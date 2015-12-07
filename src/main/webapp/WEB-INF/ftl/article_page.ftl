@@ -57,15 +57,15 @@
 
 <div class="container">
 
-    <!-- Article -->
+    <!-- Article content-->
     <div class="article title" id="articleTitle" >
-        <p th:text="${article.title}" />
+        ${article.title}
     </div>
     <hr>
     <div class="article text" id="articleText" >
-        <p th:text="${article.text}" ></p>
+        ${article.text}
     </div>
-    <!-- Article -->
+    <!-- Article content-->
 
     <!-- G+ comments -->
     <script src="https://apis.google.com/js/plusone.js"></script>
@@ -83,3 +83,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script src="libs/bootstrap-player/bootstrap-player.js"></script>
 </div>
+</body>
+</html>

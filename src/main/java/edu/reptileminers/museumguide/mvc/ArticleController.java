@@ -10,6 +10,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class ArticleController {
@@ -17,16 +25,24 @@ public class ArticleController {
     @Autowired
     private ArticleRepository repository;
 
-    @RequestMapping(value = "/article_page")
-    public String handleRequest(@RequestParam(value="title", required=false, defaultValue="About") String title, Model model) {
+    /**
+     * Saves the static list of users in model and renders it
+     * via freemarker template.
+     *
+     * @param model
+     * @return The index view (FTL)
+     */
+    @RequestMapping(value = "/article_page", method = RequestMethod.GET)
+    public String handleRequest(@ModelAttribute("title") String title,
+                                @ModelAttribute("model") ModelMap model) {
         System.out.println("ArticleController.handleRequest");
         System.out.println("title::" + title);
         List<Article> articles = repository.findByTitle(title);
 
-        for(Article article: articles) {
+        for (Article article : articles) {
             model.addAttribute("article", article);
         }
         return "article_page";
-//        return "article_page";
     }
+
 }
